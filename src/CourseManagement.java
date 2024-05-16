@@ -17,7 +17,7 @@ public class CourseManagement {
     }
 
     public static String assignGrade (Student student, Course course, double grade) {
-        for (StudentCourse sc : student.getEnrolledCources()) {
+        for (StudentCourse sc : student.getEnrolledCourses()) {
             if (sc.getCourse() == course) {
                 sc.setGrade(grade);
             }
@@ -27,7 +27,7 @@ public class CourseManagement {
 
     public static double calculateOverallGrade (Student student) {
         double totalPoints = 0.0;
-        ArrayList<StudentCourse> courseList = student.getEnrolledCources();
+        ArrayList<StudentCourse> courseList = student.getEnrolledCourses();
         for (int i = 0; i < courseList.size(); i++) {
             System.out.println(courseList.get(i));
             totalPoints += courseList.get(i).getGrade();
