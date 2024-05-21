@@ -10,9 +10,10 @@ public class Student {
     Student( int ID, String name) {
         this.ID = ID;
         this.name = name;
+        this.enrolledCources = new ArrayList<>();
     }
 
-    private void registerToCourse (Course course) {
+    public void registerToCourse (Course course) {
         StudentCourse studentCourse = new StudentCourse(course);
         this.enrolledCources.add(studentCourse);
     }
@@ -37,20 +38,20 @@ public class Student {
         return enrolledCources;
     }
 
-    public String getStudentDetails() {
+    public void printStudentDetails() {
         ArrayList<StudentCourse> courses = this.getEnrolledCourses();
         String coursesText = "";
-        for (StudentCourse stc: courses) {
-            coursesText += "    " + stc.getCourse() + " : " + stc.getGrade() + "\n";
-        }
+
         String details =
                         "ID : " + this.ID + "\n"
                         + "Name : " + this.name + "\n"
-                        + "Courses : " + "\n"
-                        + "      " + ""
-                        + "OverallGrade : " + this.getOverallGrade() + "\n"
-                        + "******************************************";
-        return details;
+                        + "Courses : " + ""
+                        + "      " + "";
+        System.out.println(details);
+        for (StudentCourse stc: courses) {
+            System.out.println("      " + stc.getCourse().getName() + " : " + stc.getGrade());
+        }
+        System.out.println("OverallGrade : " + this.getOverallGrade() + "\n");
     }
 }
 

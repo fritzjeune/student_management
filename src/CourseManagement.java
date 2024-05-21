@@ -32,6 +32,7 @@ public class CourseManagement {
             System.out.println(courseList.get(i));
             totalPoints += courseList.get(i).getGrade();
         }
+        student.setOverallGrade(totalPoints);
         return totalPoints;
     }
 

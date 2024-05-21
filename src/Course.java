@@ -9,5 +9,15 @@ public class Course {
         this.maxCapacity = maxCapacity;
     }
 
+    public String getName() {
+        return name;
+    }
 
+    public int getCourseCode() {
+        return courseCode;
+    }
+
+    public int getMaxCapacity() {
+        return maxCapacity;
+    }
 }

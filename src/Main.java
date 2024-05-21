@@ -4,8 +4,6 @@ import java.util.Scanner;
 
 public class Main {
     public static int option;
-    public static ArrayList<Student> students = new ArrayList<>();
-    public static ArrayList<Course> courses = new ArrayList<>();
     public static void main(String[] args) {
 
         boolean loggedIn = true;
@@ -16,6 +14,16 @@ public class Main {
                     // Add new student
                     System.out.println("***Add Student Section***");
 //                    addStudent();
+                    CourseManagement.registerStudent(1, "Jeanne");
+                    CourseManagement.addCourse(1, "Math", 50);
+
+                    Student ss = CourseManagement.studentList.get(0);
+                    Course cc = CourseManagement.courseList.get(0);
+                    ss.registerToCourse(cc);
+                    CourseManagement.assignGrade(ss, cc, 89.45);
+                    CourseManagement.calculateOverallGrade(ss);
+
+                    ss.printStudentDetails();
                 }
                 case 2 -> {
                     // Add new course
@@ -23,32 +31,33 @@ public class Main {
 
                 }
                 case 3 -> {
-                    // view student details
-                    System.out.println("***Enroll Student to Course Section***");
-                    // Showing the list of student
-                    // handle check for existence and print the student
-                    boolean isIdCorrect = false;
-                    do {
-                        // ask the admin for student id , the findStudentById method will
-                        System.out.println("type the ID of the student that you would like to show: ");
-                        Scanner scanner = new Scanner( System.in );
-                        int id = 0;
-                        try {
-                            id = scanner.nextInt();
-                        }
-                        catch (InputMismatchException ime) {
-                            System.out.println("Invalid for an Interger, please try again!");
-                        }
-                        // print the student details
-                        if (id > 0) {
-//                            System.out.println(Student.findStudentById(id));
-                            isIdCorrect = true;
-                        }
-                    } while (!isIdCorrect);
+
+//                    System.out.println("***Enroll Student to Course Section***");
+//                    // Showing the list of student
+//                    // handle check for existence and print the student
+//                    boolean isIdCorrect = false;
+//                    do {
+//                        // ask the admin for student id , the findStudentById method will
+//                        System.out.println("type the ID of the student that you would like to show: ");
+//                        Scanner scanner = new Scanner( System.in );
+//                        int id = 0;
+//                        try {
+//                            id = scanner.nextInt();
+//                        }
+//                        catch (InputMismatchException ime) {
+//                            System.out.println("Invalid for an Interger, please try again!");
+//                        }
+//                        // print the student details
+//                        if (id > 0) {
+////                            System.out.println(Student.findStudentById(id));
+//                            isIdCorrect = true;
+//                        }
+//                    } while (!isIdCorrect);
 
                 }
                 case 4 -> {
                     // Add grade to student course
+
                 }
                 case 5 -> {
                     // Calculate overall grade for each Student
